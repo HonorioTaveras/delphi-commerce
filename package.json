@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/HonorioTaveras/delphi-commerce/issues"
   },
-  "homepage": "https://github.com/HonorioTaveras/delphi-commerce#readme"
+  "homepage": "https://github.com/HonorioTaveras/delphi-commerce#readme",
+  "devDependencies": {}
 }
