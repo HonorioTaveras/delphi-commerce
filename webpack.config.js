@@ -1,8 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const DIST_DIR = path.resolve(__dirname, './dist');
+const SRC_DIR = path.resolve(__dirname, './src');
+
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: `${SRC_DIR}/index.js`,
   module: {
     rules: [
       {
@@ -26,12 +29,12 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: DIST_DIR,
     filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: DIST_DIR,
     hot: true,
   },
 };
