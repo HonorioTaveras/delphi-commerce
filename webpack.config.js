@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -10,6 +11,10 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.(css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   resolve: {
@@ -19,7 +24,10 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin(),
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
     hot: true,
