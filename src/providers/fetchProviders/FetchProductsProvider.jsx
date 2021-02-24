@@ -4,7 +4,7 @@ import axios from 'axios';
 import UrlContext from '../../contexts/url/url.context';
 import ProductIdContext from '../../contexts/productId/productId.context';
 
-const FetchProcuctsContext = createContext();
+const FetchProductsContext = createContext();
 
 const FetchProductsProvider = ({ children }) => {
   const [productInformation, setProductInformation] = useState([]);
@@ -20,7 +20,6 @@ const FetchProductsProvider = ({ children }) => {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(`${url}/${productInformationEndpoint}`);
-
       setProductInformation(res.data);
     } catch (error) {
       console.log('fetch products error: ', JSON.parse(error));
@@ -28,10 +27,10 @@ const FetchProductsProvider = ({ children }) => {
   };
 
   return (
-    <FetchProcuctsContext.Provider value={{ productInformation }}>
+    <FetchProductsContext.Provider value={{ productInformation }}>
       {children}
-    </FetchProcuctsContext.Provider>
+    </FetchProductsContext.Provider>
   );
 };
 
-export { FetchProductsProvider, FetchProcuctsContext };
+export { FetchProductsProvider, FetchProductsContext };

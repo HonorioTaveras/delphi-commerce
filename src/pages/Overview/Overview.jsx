@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
-import { FetchProcuctsContext } from '../../providers/fetchProviders/FetchProductsProvider';
+import { FetchProductsContext } from '../../providers/fetchProviders/FetchProductsProvider';
 
 import './Overview.scss';
 
 const Overview = () => {
-  const { productInformation } = useContext(FetchProcuctsContext);
+  const { productInformation } = useContext(FetchProductsContext);
   console.log('productInformation: ', productInformation);
 
   return <div>Sup dirtbag from Overview Page!</div>;
