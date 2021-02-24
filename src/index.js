@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import FetchProcuctsProvider from './providers/fetchProviders/FetchProductsProvider';
+import { FetchProductsProvider } from './providers/fetchProviders/FetchProductsProvider';
 
 import App from './App/App';
 
 ReactDOM.render(
-  <FetchProcuctsProvider>
+  <FetchProductsProvider>
     <App />
-  </FetchProcuctsProvider>,
+  </FetchProductsProvider>,
   document.getElementById('app')
 );
 

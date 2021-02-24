@@ -21,10 +21,9 @@ const FetchProductsProvider = ({ children }) => {
     try {
       const res = await axios.get(`${url}/${productInformationEndpoint}`);
 
-      console.log('product information from app component: ', res.data);
       setProductInformation(res.data);
     } catch (error) {
-      console.log('fetch products error: ', JSPON.parse(error));
+      console.log('fetch products error: ', JSON.parse(error));
     }
   };
 
@@ -35,4 +34,4 @@ const FetchProductsProvider = ({ children }) => {
   );
 };
 
-export default { FetchProductsProvider, FetchProcuctsContext };
+export { FetchProductsProvider, FetchProcuctsContext };
