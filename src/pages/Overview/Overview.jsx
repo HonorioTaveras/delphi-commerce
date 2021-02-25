@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
 
-import { FetchProductsContext } from '../../providers/fetchProviders/FetchProductsProvider';
+import { FetchContext } from '../../providers/FetchProvider';
+
+import ImageGallery from '../../Components/Overview/ImageGallery/ImageGallery';
 
 import './Overview.scss';
 
 const Overview = () => {
-  const { productInformation } = useContext(FetchProductsContext);
+  const { productInformation } = useContext(FetchContext);
   console.log('productInformation: ', productInformation);
 
-  return <div>Sup dirtbag from Overview Page!</div>;
+  return <div>
+    <ImageGallery />
+  </div>;
 };
 
 export default Overview;

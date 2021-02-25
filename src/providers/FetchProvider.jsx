@@ -1,12 +1,12 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import axios from 'axios';
 
-import UrlContext from '../../contexts/url/url.context';
-import ProductIdContext from '../../contexts/productId/productId.context';
+import UrlContext from '../contexts/url/url.context';
+import ProductIdContext from '../contexts/productId/productId.context';
 
-const FetchProductsContext = createContext();
+const FetchContext = createContext();
 
-const FetchProductsProvider = ({ children }) => {
+const FetchProvider = ({ children }) => {
   const [productInformation, setProductInformation] = useState([]);
 
   const url = useContext(UrlContext);
@@ -26,11 +26,13 @@ const FetchProductsProvider = ({ children }) => {
     }
   };
 
+  console.log(productInformation);
+
   return (
-    <FetchProductsContext.Provider value={{ productInformation }}>
+    <FetchContext.Provider value={{ productInformation }}>
       {children}
-    </FetchProductsContext.Provider>
+    </FetchContext.Provider>
   );
 };
 
-export { FetchProductsProvider, FetchProductsContext };
+export { FetchProvider, FetchContext };
