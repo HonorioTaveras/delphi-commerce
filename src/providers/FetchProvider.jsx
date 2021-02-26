@@ -9,6 +9,7 @@ const FetchContext = createContext();
 const FetchProvider = ({ children }) => {
   const [productInformation, setProductInformation] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
+  const [currentStyleIdx, setCurrentStyleIdx] = useState(0);
 
   const url = useContext(UrlContext);
   const productId = useContext(ProductIdContext);
@@ -40,7 +41,14 @@ const FetchProvider = ({ children }) => {
   };
 
   return (
-    <FetchContext.Provider value={{ productInformation, productStyles }}>
+    <FetchContext.Provider
+      value={{
+        productInformation,
+        productStyles,
+        currentStyleIdx,
+        setCurrentStyleIdx,
+      }}
+    >
       {children}
     </FetchContext.Provider>
   );

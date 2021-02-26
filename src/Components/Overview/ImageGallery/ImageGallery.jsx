@@ -5,9 +5,9 @@ import { FetchContext } from '../../../providers/FetchProvider';
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
-  const { productStyles } = useContext(FetchContext);
+  const { productStyles, currentStyleIdx } = useContext(FetchContext);
 
-  console.log(productStyles);
+  console.log(productStyles[currentStyleIdx]);
 
   return <div>Sup dirtbag! from ImageGallery component</div>;
 };
