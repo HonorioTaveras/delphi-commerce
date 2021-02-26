@@ -8,28 +8,39 @@ const FetchContext = createContext();
 
 const FetchProvider = ({ children }) => {
   const [productInformation, setProductInformation] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
 
   const url = useContext(UrlContext);
   const productId = useContext(ProductIdContext);
   const productInformationEndpoint = `products/${productId}`;
 
   useEffect(() => {
-    fetchProducts();
+    fetchProductInformation();
+    fetchProductStyles();
   }, []);
 
-  const fetchProducts = async () => {
+  const fetchProductInformation = async () => {
     try {
       const res = await axios.get(`${url}/${productInformationEndpoint}`);
       setProductInformation(res.data);
     } catch (error) {
-      console.log('fetch products error: ', JSON.parse(error));
+      console.log('fetch product information error: ', JSON.parse(error));
     }
   };
 
-  console.log(productInformation);
+  const fetchProductStyles = async () => {
+    try {
+      const res = await axios.get(
+        `${url}/${productInformationEndpoint}/styles`
+      );
+      setProductStyles(res.data.results);
+    } catch (error) {
+      console.log('fetch product styles error: ', JSON.parse(error));
+    }
+  };
 
   return (
-    <FetchContext.Provider value={{ productInformation }}>
+    <FetchContext.Provider value={{ productInformation, productStyles }}>
       {children}
     </FetchContext.Provider>
   );

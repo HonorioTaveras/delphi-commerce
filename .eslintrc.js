@@ -26,7 +26,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'no-use-before-define': ['off', 'nofunc'],
     'no-console': 'off',
-    'import/prefer-default-export': 'off',
     'no-restricted-syntax': [
       'error',
       {

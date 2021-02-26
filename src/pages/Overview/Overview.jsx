@@ -8,7 +8,6 @@ import './Overview.scss';
 
 const Overview = () => {
   const { productInformation } = useContext(FetchContext);
-  console.log('productInformation: ', productInformation);
 
   return <div>
     <ImageGallery />
