@@ -2,6 +2,7 @@ import React, {
   useState, useEffect, createContext, useContext,
 } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import UrlContext from '../contexts/url/url.context';
 import ProductIdContext from '../contexts/productId/productId.context';
@@ -54,6 +55,10 @@ const FetchProvider = ({ children }) => {
       {children}
     </FetchContext.Provider>
   );
+};
+
+FetchProvider.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export { FetchProvider, FetchContext };
