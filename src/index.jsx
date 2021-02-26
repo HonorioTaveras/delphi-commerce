@@ -5,6 +5,8 @@ import { FetchProvider } from './providers/FetchProvider';
 
 import App from './App/App';
 
+import './index.scss';
+
 ReactDOM.render(
   <FetchProvider>
     <App />
