@@ -5,13 +5,13 @@ const DIST_DIR = path.resolve(__dirname, './dist');
 const SRC_DIR = path.resolve(__dirname, './src');
 
 module.exports = {
-  entry: `${SRC_DIR}/index.js`,
+  entry: `${SRC_DIR}/index.jsx`,
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader', 'eslint-loader'],
       },
       {
         test: /\.(scss|css)$/,

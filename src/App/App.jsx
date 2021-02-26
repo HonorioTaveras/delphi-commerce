@@ -4,8 +4,6 @@ import Overview from '../pages/Overview/Overview';
 
 import './App.scss';
 
-const App = () => {
-  return <Overview />
-};
+const App = () => <Overview />;
 
 export default App;

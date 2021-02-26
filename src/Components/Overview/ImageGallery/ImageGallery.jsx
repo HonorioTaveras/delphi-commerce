@@ -10,15 +10,15 @@ const ImageGallery = () => {
   const currentStyle = productStyles[currentStyleIdx];
 
   return (
-    <div>
-      <Carousel>
-        {currentStyle &&
-          Children.toArray(
+    <div className="image-gallery-container">
+      <Carousel className="image-gallery">
+        {currentStyle
+          && Children.toArray(
             currentStyle.photos.map(({ url }) => (
               <Carousel.Item>
-                <img src={url} alt='' />
+                <img src={url} alt="" />
               </Carousel.Item>
-            ))
+            )),
           )}
       </Carousel>
     </div>

@@ -9,7 +9,7 @@ ReactDOM.render(
   <FetchProvider>
     <App />
   </FetchProvider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 
 module.hot.accept();

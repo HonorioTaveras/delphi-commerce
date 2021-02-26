@@ -1,4 +1,6 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, {
+  useState, useEffect, createContext, useContext,
+} from 'react';
 import axios from 'axios';
 
 import UrlContext from '../contexts/url/url.context';
@@ -32,7 +34,7 @@ const FetchProvider = ({ children }) => {
   const fetchProductStyles = async () => {
     try {
       const res = await axios.get(
-        `${url}/${productInformationEndpoint}/styles`
+        `${url}/${productInformationEndpoint}/styles`,
       );
       setProductStyles(res.data.results);
     } catch (error) {

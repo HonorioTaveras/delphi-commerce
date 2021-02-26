@@ -1,17 +1,13 @@
-import React, { useContext } from 'react';
-
-import { FetchContext } from '../../providers/FetchProvider';
+import React from 'react';
 
 import ImageGallery from '../../Components/Overview/ImageGallery/ImageGallery';
 
 import './Overview.scss';
 
-const Overview = () => {
-  const { productInformation } = useContext(FetchContext);
-
-  return <div>
+const Overview = () => (
+  <div>
     <ImageGallery />
-  </div>;
-};
+  </div>
+);
 
 export default Overview;
