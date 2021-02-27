@@ -9,11 +9,14 @@ const ImageGallery = () => {
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
   const currentStyle = productStyles[currentStyleIdx];
 
-  console.log(currentStyle);
-
   return (
     <div className="image-gallery-container">
-      <Carousel className="carousel">
+      <Carousel
+        autoPlay={false}
+        interval={null}
+        wrap={false}
+        indicators={false}
+      >
         {currentStyle
           && Children.toArray(
             currentStyle.photos.map(({ url }) => (

@@ -1,7 +1,28 @@
 .overview-container {
   display: grid;
 
+  .header {
+    grid-area: header;
+  }
+  .thumbnails {
+    grid-area: thumbnails;
+  }
   .image-gallery {
     grid-area: image-gallery;
+  }
+  .star-rating {
+    grid-area: star-rating;
+  }
+  .product-information {
+    grid-area: product-information;
+  }
+  .style-selector {
+    grid-area: style-selector;
+  }
+  .shopping-cart {
+    grid-area: shopping-cart;
+  }
+  .product-overview {
+    grid-area: product-overview;
   }
 }
