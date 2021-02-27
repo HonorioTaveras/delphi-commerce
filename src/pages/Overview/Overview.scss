@@ -1,0 +1,7 @@
+.overview-container {
+  display: grid;
+
+  .image-gallery {
+    grid-area: image-gallery;
+  }
+}

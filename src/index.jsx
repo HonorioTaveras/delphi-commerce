@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 
 import { FetchProvider } from './providers/FetchProvider';
 
-import App from './App/App';
-
 import './index.scss';
+
+import App from './App/App';
 
 ReactDOM.render(
   <FetchProvider>

@@ -5,8 +5,10 @@ import ImageGallery from '../../Components/Overview/ImageGallery/ImageGallery';
 import './Overview.scss';
 
 const Overview = () => (
-  <div>
-    <ImageGallery />
+  <div className="overview-container">
+    <div className="image-gallery">
+      <ImageGallery />
+    </div>
   </div>
 );
 

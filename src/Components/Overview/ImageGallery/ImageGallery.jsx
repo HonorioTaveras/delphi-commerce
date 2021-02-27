@@ -11,7 +11,7 @@ const ImageGallery = () => {
 
   return (
     <div className="image-gallery-container">
-      <Carousel className="image-gallery">
+      <Carousel className="carousel">
         {currentStyle
           && Children.toArray(
             currentStyle.photos.map(({ url }) => (
