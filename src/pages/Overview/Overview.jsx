@@ -16,23 +16,27 @@ const Overview = () => (
     <div className="header">
       <Header />
     </div>
-    <div className="thumbnails">
-      <Thumbnails />
+    <div className="full-gallery-container">
+      <div className="thumbnails">
+        <Thumbnails />
+      </div>
+      <div className="image-gallery">
+        <ImageGallery />
+      </div>
     </div>
-    <div className="image-gallery">
-      <ImageGallery />
-    </div>
-    <div className="star-rating">
-      <StarRating />
-    </div>
-    <div className="product-information">
-      <ProductInformation />
-    </div>
-    <div className="style-selector">
-      <StyleSelector />
-    </div>
-    <div className="shopping-cart">
-      <ShoppingCart />
+    <div className="product-information-container">
+      <div className="star-rating">
+        <StarRating />
+      </div>
+      <div className="product-information">
+        <ProductInformation />
+      </div>
+      <div className="style-selector">
+        <StyleSelector />
+      </div>
+      <div className="shopping-cart">
+        <ShoppingCart />
+      </div>
     </div>
     <div className="product-overview">
       <ProductOverview />
