@@ -1,4 +1,6 @@
-import React, { useContext, Children } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import React, { useContext, Children, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 import { FetchContext } from '../../../providers/FetchProvider';
@@ -9,25 +11,29 @@ import NextIcon from '../../../assets/right-arrow.svg';
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
+  const [index, setIndex] = useState(0);
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
   const currentStyle = productStyles[currentStyleIdx];
 
   console.log(currentStyle);
+  const handleSelect = (idx) => setIndex(idx);
 
   return (
     <div className="image-gallery-container">
       <div className="thumbnails-container">
         {currentStyle
           ? Children.toArray(
-            currentStyle.photos.map(({ thumbnail_url }) => (
+            currentStyle.photos.map(({ thumbnail_url }, idx) => (
               <div className="thumbnail-image">
-                <img src={thumbnail_url} alt="" />
+                <img src={thumbnail_url} alt="" onClick={() => setIndex(idx)} />
               </div>
             )),
           )
           : null}
       </div>
       <Carousel
+        activeIndex={index}
+        onSelect={handleSelect}
         autoPlay={false}
         interval={null}
         wrap={false}

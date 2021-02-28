@@ -37,6 +37,7 @@
       object-fit: cover;
       filter: saturate(0);
       transition: 0.3s ease all;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.05);
