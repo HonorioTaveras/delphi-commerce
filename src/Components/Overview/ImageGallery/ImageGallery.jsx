@@ -3,6 +3,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import { FetchContext } from '../../../providers/FetchProvider';
 
+import PrevIcon from '../../../assets/left-arrow.svg';
+import NextIcon from '../../../assets/right-arrow.svg';
+
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
@@ -17,12 +20,25 @@ const ImageGallery = () => {
         wrap={false}
         indicators={false}
         fade
+        keyboard
+        prevIcon={(
+          <div className="prev-btn">
+            <img src={PrevIcon} height="20" width="20" alt="" />
+          </div>
+        )}
+        nextIcon={(
+          <div className="next-btn">
+            <img src={NextIcon} height="20" width="20" alt="" />
+          </div>
+        )}
       >
         {currentStyle
           && Children.toArray(
             currentStyle.photos.map(({ url }) => (
               <Carousel.Item>
-                <img className="carousel-image" src={url} alt="" />
+                <div className="carousel-image">
+                  <img src={url} alt="" />
+                </div>
               </Carousel.Item>
             )),
           )}
