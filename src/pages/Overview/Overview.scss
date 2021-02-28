@@ -13,19 +13,20 @@
     grid-area: image-gallery;
     width: 45rem;
     height: 36rem;
+    margin-bottom: 2rem;
   }
   .product-information-container {
     grid-area: product-information;
     display: flex;
     flex-direction: column;
-    .star-rating {
-    }
-    .product-information {
-    }
-    .style-selector {
-    }
-    .shopping-cart {
-    }
+    // .star-rating {
+    // }
+    // .product-information {
+    // }
+    // .style-selector {
+    // }
+    // .shopping-cart {
+    // }
   }
   .product-overview {
     grid-area: product-overview;
