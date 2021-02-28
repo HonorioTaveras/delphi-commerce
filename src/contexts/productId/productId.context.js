@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-const productId = '8';
+const productId = '1';
 
 const ProductIdContext = createContext(productId);
 

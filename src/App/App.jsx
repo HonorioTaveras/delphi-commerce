@@ -4,6 +4,10 @@ import Overview from '../pages/Overview/Overview';
 
 import './App.scss';
 
-const App = () => <Overview />;
+const App = () => (
+  <div className="app-container">
+    <Overview />
+  </div>
+);
 
 export default App;

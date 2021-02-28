@@ -1,1 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
+
+.image-gallery-container {
+  // overflow: hidden;
+  // width: 45rem;
+  // height: 36rem;
+  padding: 5% 0;
+  margin-bottom: 45px;
+  .carousel-image {
+    border-radius: 0.375rem;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+    max-width: 45rem;
+    max-height: 36rem;
+  }
+}
