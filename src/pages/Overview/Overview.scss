@@ -4,19 +4,15 @@
   grid-template-rows: auto;
   grid-template-areas:
     'header header header header header header'
-    'full-gallery full-gallery full-gallery full-gallery product-information product-information'
+    'image-gallery image-gallery image-gallery image-gallery product-information product-information'
     'product-overview product-overview product-overview product-overview product-overview product-overview';
   .header {
     grid-area: header;
   }
-  .full-gallery-container {
-    grid-area: full-gallery;
-    display: flex;
-    flex-direction: row;
-    .thumbnails {
-    }
-    .image-gallery {
-    }
+  .image-gallery {
+    grid-area: image-gallery;
+    width: 45rem;
+    height: 36rem;
   }
   .product-information-container {
     grid-area: product-information;

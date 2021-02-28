@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Header from '../../Components/Overview/Header/Header';
-import Thumbnails from '../../Components/Overview/Thumbnails/Thumbnails';
 import ImageGallery from '../../Components/Overview/ImageGallery/ImageGallery';
 import StarRating from '../../Components/Overview/StarRating/StarRating';
 import ProductInformation from '../../Components/Overview/ProductInformation/ProductInformation';
@@ -16,13 +15,8 @@ const Overview = () => (
     <div className="header">
       <Header />
     </div>
-    <div className="full-gallery-container">
-      <div className="thumbnails">
-        <Thumbnails />
-      </div>
-      <div className="image-gallery">
-        <ImageGallery />
-      </div>
+    <div className="image-gallery">
+      <ImageGallery />
     </div>
     <div className="product-information-container">
       <div className="star-rating">

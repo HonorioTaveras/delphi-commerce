@@ -1,6 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 .image-gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1.25rem;
   .prev-btn,
   .next-btn {
