@@ -3,6 +3,7 @@
 .image-gallery-container {
   display: flex;
   align-items: center;
+  position: absolute;
   .prev-btn,
   .next-btn {
     display: flex;
@@ -30,6 +31,11 @@
     flex-direction: column;
     margin: 0 5px;
     height: 35rem;
+    overflow: auto;
+    position: relative;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .thumbnail-image {
       width: 65px;
       height: 65px;
@@ -53,6 +59,7 @@
   .carousel-image {
     display: flex;
     justify-content: center;
+    position: relative;
     width: 45rem;
     height: 36rem;
     img {

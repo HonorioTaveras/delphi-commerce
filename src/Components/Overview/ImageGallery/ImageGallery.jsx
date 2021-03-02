@@ -23,9 +23,9 @@ const ImageGallery = () => {
       <div className="thumbnails-container">
         {currentStyle
           ? Children.toArray(
-            currentStyle.photos.map(({ thumbnail_url }, idx) => (
+            currentStyle.photos.map(({ url }, idx) => (
               <div className="thumbnail-image">
-                <img src={thumbnail_url} alt="" onClick={() => setIndex(idx)} />
+                <img src={url} alt="" onClick={() => setIndex(idx)} />
               </div>
             )),
           )
