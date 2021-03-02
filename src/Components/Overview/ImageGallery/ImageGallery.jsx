@@ -15,7 +15,6 @@ const ImageGallery = () => {
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
   const currentStyle = productStyles[currentStyleIdx];
 
-  console.log(currentStyle);
   const handleSelect = (idx) => setIndex(idx);
 
   return (
