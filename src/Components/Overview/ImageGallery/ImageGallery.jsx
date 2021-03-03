@@ -1,6 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useContext, Children, useState } from 'react';
+import React, {
+  useContext,
+  Children,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 import { FetchContext } from '../../../providers/FetchProvider';
@@ -11,11 +15,23 @@ import NextIcon from '../../../assets/right-arrow.svg';
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
-  const [index, setIndex] = useState(0);
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
+  const [index, setIndex] = useState(0);
+  const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
+  const thumbnailsRefs = useRef([]);
   const currentStyle = productStyles[currentStyleIdx];
-
   const handleSelect = (idx) => setIndex(idx);
+
+  useEffect(() => {
+    setCurrentThumbnailRef(thumbnailsRefs.current[index]);
+    if (currentThumbnailRef) {
+      currentThumbnailRef.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center',
+      });
+    }
+  }, [index]);
 
   return (
     <div className="image-gallery-container">
@@ -23,8 +39,17 @@ const ImageGallery = () => {
         {currentStyle
           ? Children.toArray(
             currentStyle.photos.map(({ url }, idx) => (
-              <div className="thumbnail-image">
-                <img src={url} alt="" onClick={() => setIndex(idx)} />
+              <div
+                className={`${
+                  index === idx ? 'current-thumbnail' : ''
+                } thumbnail-image`}
+              >
+                <img
+                  src={url}
+                  alt=""
+                  onClick={() => setIndex(idx)}
+                  ref={(currentThumbnail) => thumbnailsRefs.current.push(currentThumbnail)}
+                />
               </div>
             )),
           )
