@@ -5,8 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { FetchContext } from '../../../providers/FetchProvider';
 
-import PrevIcon from '../../../assets/left-arrow.svg';
-import NextIcon from '../../../assets/right-arrow.svg';
+import { NextButton, PrevButton } from '../NextAndPrevButtons/NextAndPrevButtons';
 
 import './ModalImage.scss';
 
@@ -27,38 +26,32 @@ const ModalImage = ({ show, setShow }) => {
         centered
         size="xl"
       >
-        <Carousel
-          activeIndex={index}
-          onSelect={handleSelect}
-          autoPlay={false}
-          interval={null}
-          wrap={false}
-          indicators={false}
-          keyboard
-          fade
-          prevIcon={(
-            <div className="prev-btn">
-              <img src={PrevIcon} height="20" width="20" alt="" />
-            </div>
-          )}
-          nextIcon={(
-            <div className="next-btn">
-              <img src={NextIcon} height="20" width="20" alt="" />
-            </div>
-          )}
-        >
-          {currentStyle
-            ? Children.toArray(
-              currentStyle.photos.map(({ url }) => (
-                <Carousel.Item>
-                  <div className="carousel-image">
-                    <img src={url} alt="" onClick={() => setShow(true)} />
-                  </div>
-                </Carousel.Item>
-              )),
-            )
-            : null}
-        </Carousel>
+        <div className="modal-carousel-container">
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            autoPlay={false}
+            interval={null}
+            wrap={false}
+            indicators={false}
+            keyboard
+            fade
+            prevIcon={<PrevButton />}
+            nextIcon={<NextButton />}
+          >
+            {currentStyle
+              ? Children.toArray(
+                currentStyle.photos.map(({ url }) => (
+                  <Carousel.Item>
+                    <div className="carousel-image">
+                      <img src={url} alt="" onClick={() => setShow(true)} />
+                    </div>
+                  </Carousel.Item>
+                )),
+              )
+              : null}
+          </Carousel>
+        </div>
       </Modal>
     </div>
   );

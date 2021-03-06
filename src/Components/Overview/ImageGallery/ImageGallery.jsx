@@ -8,10 +8,9 @@ import React, {
 import Carousel from 'react-bootstrap/Carousel';
 
 import { FetchContext } from '../../../providers/FetchProvider';
-import ModalImage from '../ModalImage/ModalImage';
 
-import PrevIcon from '../../../assets/left-arrow.svg';
-import NextIcon from '../../../assets/right-arrow.svg';
+import ModalImage from '../ModalImage/ModalImage';
+import { NextButton, PrevButton } from '../NextAndPrevButtons/NextAndPrevButtons';
 
 import './ImageGallery.scss';
 
@@ -70,16 +69,8 @@ const ImageGallery = () => {
           indicators={false}
           keyboard
           fade
-          prevIcon={(
-            <div className="prev-btn">
-              <img src={PrevIcon} height="20" width="20" alt="" />
-            </div>
-          )}
-          nextIcon={(
-            <div className="next-btn">
-              <img src={NextIcon} height="20" width="20" alt="" />
-            </div>
-          )}
+          prevIcon={<PrevButton />}
+          nextIcon={<NextButton />}
         >
           {currentStyle
             ? Children.toArray(
