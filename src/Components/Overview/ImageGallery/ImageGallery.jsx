@@ -6,22 +6,24 @@ import React, {
   useEffect,
 } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Modal from 'react-bootstrap/Modal';
 
 import { FetchContext } from '../../../providers/FetchProvider';
+import ModalImage from '../ModalImage/ModalImage';
 
 import PrevIcon from '../../../assets/left-arrow.svg';
 import NextIcon from '../../../assets/right-arrow.svg';
-// import Crop from '../../../assets/crop.svg';
 
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
+
   const [index, setIndex] = useState(0);
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
   const [show, setShow] = useState(false);
+
   const thumbnailsRefs = useRef([]);
+
   const currentStyle = productStyles[currentStyleIdx];
   const handleSelect = (idx) => setIndex(idx);
 
@@ -91,18 +93,7 @@ const ImageGallery = () => {
             )
             : null}
         </Carousel>
-        {/* <div className="crop-image">
-          <img src={Crop} alt="" />
-        </div> */}
-        <Modal
-          show={show}
-          onHide={() => setShow(false)}
-          enforceFocus
-          centered
-          size="xl"
-        >
-          HUE FROM MODAL DIRTBAG!
-        </Modal>
+        <ModalImage show={show} setShow={setShow} />
       </div>
     </div>
   );
