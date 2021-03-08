@@ -1,4 +1,4 @@
-import React, { useContext, Children, useState } from 'react';
+import React, { useContext, Children } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import Modal from 'react-bootstrap/Modal';
@@ -9,17 +9,17 @@ import { NextButton, PrevButton } from '../NextAndPrevButtons/NextAndPrevButtons
 
 import './ModalImage.scss';
 
-const ModalImage = ({ show, setShow }) => {
+const ModalImage = ({
+  show, setShow, index, handleSelect,
+}) => {
   const { productStyles, currentStyleIdx } = useContext(FetchContext);
 
-  const [index, setIndex] = useState(0);
-
   const currentStyle = productStyles[currentStyleIdx];
-  const handleSelect = (idx) => setIndex(idx);
 
   return (
     <div className="modal-container">
       <Modal
+        // bsPrefix="custom-modal"
         show={show}
         onHide={() => setShow(false)}
         enforceFocus
@@ -43,8 +43,8 @@ const ModalImage = ({ show, setShow }) => {
               ? Children.toArray(
                 currentStyle.photos.map(({ url }) => (
                   <Carousel.Item>
-                    <div className="carousel-image">
-                      <img src={url} alt="" onClick={() => setShow(true)} />
+                    <div className="modal-carousel-image">
+                      <img src={url} alt="" />
                     </div>
                   </Carousel.Item>
                 )),
@@ -60,6 +60,9 @@ const ModalImage = ({ show, setShow }) => {
 ModalImage.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  // setIndex: PropTypes.func.isRequired,
+  handleSelect: PropTypes.func.isRequired,
 };
 
 export default ModalImage;
