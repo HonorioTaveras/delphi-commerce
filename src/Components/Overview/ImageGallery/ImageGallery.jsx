@@ -29,7 +29,7 @@ const ImageGallery = () => {
   const currentStyle = productStyles[currentStyleIdx];
   const handleSelect = (idx) => setIndex(idx);
 
-  console.log(currentStyle && currentStyle.photos);
+  // console.log(currentStyle && currentStyle.photos);
 
   useEffect(() => {
     setCurrentThumbnailRef(thumbnailsRefs.current[index]);
