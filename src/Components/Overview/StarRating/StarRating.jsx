@@ -28,8 +28,8 @@ const StarRating = () => {
 
   if (reviewsInformation.length) {
     return (
-      <div>
-        <span>
+      <div className="star-rating-container">
+        <div>
           <Rating
             name="read-only"
             readOnly
@@ -37,20 +37,19 @@ const StarRating = () => {
             precision={0.25}
             size="small"
           />
-        </span>
-        <span>
+        </div>
+        <div>
           <a
             href="/"
             onClick={(e) => handleClickReviews(e)}
             className="reviews-link"
           >
-            {' '}
             Read all
             {` ${reviewsInformation.length}`}
             {' '}
             reviews
           </a>
-        </span>
+        </div>
       </div>
     );
   }
