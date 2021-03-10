@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import { FetchContext } from '../../../providers/FetchProvider';
+import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
 import ModalImage from '../ModalImage/ModalImage';
 import {
@@ -18,7 +18,7 @@ import {
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
-  const { productStyles, currentStyleIdx } = useContext(FetchContext);
+  const { productStyles, currentStyleIdx } = useContext(OverviewContext);
 
   const [index, setIndex] = useState(0);
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);

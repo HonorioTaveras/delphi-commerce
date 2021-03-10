@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { FetchProvider } from './providers/FetchProvider';
+import { OverviewProvider } from './providers/overview/OverviewProvider';
 import { ReviewsProvider } from './providers/reviews/ReviewsProvider';
 
 import './index.scss';
@@ -9,11 +9,11 @@ import './index.scss';
 import App from './App/App';
 
 ReactDOM.render(
-  <FetchProvider>
+  <OverviewProvider>
     <ReviewsProvider>
       <App />
     </ReviewsProvider>
-  </FetchProvider>,
+  </OverviewProvider>,
   document.getElementById('app'),
 );
 

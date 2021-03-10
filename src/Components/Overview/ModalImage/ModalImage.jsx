@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import Modal from 'react-bootstrap/Modal';
 
-import { FetchContext } from '../../../providers/FetchProvider';
+import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
 import { NextButton, PrevButton } from '../NextAndPrevButtons/NextAndPrevButtons';
 
@@ -12,7 +12,7 @@ import './ModalImage.scss';
 const ModalImage = ({
   show, setShow, index, handleSelect,
 }) => {
-  const { productStyles, currentStyleIdx } = useContext(FetchContext);
+  const { productStyles, currentStyleIdx } = useContext(OverviewContext);
 
   const currentStyle = productStyles[currentStyleIdx];
 

@@ -4,12 +4,12 @@ import React, {
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import UrlContext from '../contexts/url/url.context';
-import ProductIdContext from '../contexts/productId/productId.context';
+import UrlContext from '../../contexts/url/url.context';
+import ProductIdContext from '../../contexts/productId/productId.context';
 
-const FetchContext = createContext();
+const OverviewContext = createContext();
 
-const FetchProvider = ({ children }) => {
+const OverviewProvider = ({ children }) => {
   const [productInformation, setProductInformation] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyleIdx, setCurrentStyleIdx] = useState(0);
@@ -44,7 +44,7 @@ const FetchProvider = ({ children }) => {
   };
 
   return (
-    <FetchContext.Provider
+    <OverviewContext.Provider
       value={{
         productInformation,
         productStyles,
@@ -53,12 +53,12 @@ const FetchProvider = ({ children }) => {
       }}
     >
       {children}
-    </FetchContext.Provider>
+    </OverviewContext.Provider>
   );
 };
 
-FetchProvider.propTypes = {
+OverviewProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export { FetchProvider, FetchContext };
+export { OverviewProvider, OverviewContext };
