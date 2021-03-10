@@ -29,8 +29,6 @@ const ReviewsProvider = ({ children }) => {
     }
   };
 
-  // console.log(reviewsInformation);
-
   return (
     <ReviewsContext.Provider
       value={{
