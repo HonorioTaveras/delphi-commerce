@@ -14,10 +14,10 @@ const StarRating = () => {
     if (reviewsInformation.length === 0) {
       return;
     }
-    const averageRating = reviewsInformation.reduce(
-      (total, currentReview) => (total + currentReview) / reviewsInformation.length.toFixed(1),
-    );
-    setRating(averageRating * 1);
+    const averageRating = reviewsInformation.reduce((total, currentReview) => (
+      (total + currentReview.rating)
+    ), 0) / reviewsInformation.length;
+    setRating(averageRating);
   };
 
   useEffect(() => {
