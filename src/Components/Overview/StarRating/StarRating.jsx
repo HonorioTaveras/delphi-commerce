@@ -11,9 +11,6 @@ const StarRating = () => {
   const [rating, setRating] = useState(0);
 
   const handleRatingsAverage = () => {
-    if (reviewsInformation.length === 0) {
-      return;
-    }
     const averageRating = reviewsInformation.reduce((total, currentReview) => (
       (total + currentReview.rating)
     ), 0) / reviewsInformation.length;
@@ -39,16 +36,27 @@ const StarRating = () => {
           />
         </div>
         <div>
-          <a
-            href="/"
-            onClick={(e) => handleClickReviews(e)}
-            className="reviews-link"
-          >
-            Read all
-            {` ${reviewsInformation.length}`}
-            {' '}
-            reviews
-          </a>
+          {reviewsInformation.length > 1 ? (
+            <a
+              href="/"
+              onClick={(e) => handleClickReviews(e)}
+              className="reviews-link"
+            >
+              Read all
+              {` ${reviewsInformation.length}`}
+              {' '}
+              reviews
+            </a>
+          )
+            : (
+              <a
+                href="/"
+                onClick={(e) => handleClickReviews(e)}
+                className="reviews-link"
+              >
+                Read review
+              </a>
+            )}
         </div>
       </div>
     );
