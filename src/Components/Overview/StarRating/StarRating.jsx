@@ -11,16 +11,13 @@ const StarRating = () => {
   const [rating, setRating] = useState(0);
 
   const handleRatingsAverage = () => {
-    let total = 0;
     if (reviewsInformation.length === 0) {
       return;
     }
-    for (let i = 0; i < reviewsInformation.length; i += 1) {
-      const currentReview = reviewsInformation[i];
-      total += currentReview.rating;
-    }
-    const averageRating = (total / reviewsInformation.length).toFixed(1);
-    setRating(parseFloat(averageRating));
+    const averageRating = reviewsInformation.reduce(
+      (total, currentReview) => (total + currentReview) / reviewsInformation.length.toFixed(1),
+    );
+    setRating(averageRating * 1);
   };
 
   useEffect(() => {
