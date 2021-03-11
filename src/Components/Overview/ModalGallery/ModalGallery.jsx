@@ -1,4 +1,10 @@
-import React, { useState, useImperativeHandle, forwardRef } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  useCallback,
+} from 'react';
 import { createPortal } from 'react-dom';
 
 const modalElement = document.getElementById('modal-root');
@@ -6,10 +12,34 @@ const modalElement = document.getElementById('modal-root');
 const Modal = ({ childen, defaultOpened = false }, ref) => {
   const [isOpen, setIsOpen] = useState(defaultOpened);
 
-  useImperativeHandle(ref, () => ({
-    open: () => setIsOpen(true),
-    close: () => setIsOpen(false),
-  }), [close]);
+  const close = useCallback(() => setIsOpen(false), []);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      open: () => setIsOpen(true),
+      close,
+    }),
+    [close],
+  );
+
+  const handleEscape = useCallback(
+    (e) => {
+      if (e.keyCode === 27) {
+        close();
+      }
+    },
+    [close],
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape, false);
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape, false);
+    };
+  }, [handleEscape, isOpen]);
 
   return createPortal(
     isOpen ? <div className="modal">{childen}</div> : null,
