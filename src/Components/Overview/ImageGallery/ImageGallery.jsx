@@ -9,7 +9,6 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
-import ModalImage from '../ModalImage/ModalImage';
 import {
   NextButton,
   PrevButton,
@@ -22,14 +21,11 @@ const ImageGallery = () => {
 
   const [index, setIndex] = useState(0);
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
-  const [show, setShow] = useState(false);
 
   const thumbnailsRefs = useRef([]);
 
   const currentStyle = productStyles[currentStyleIdx];
   const handleSelect = (idx) => setIndex(idx);
-
-  // console.log(currentStyle && currentStyle.photos);
 
   useEffect(() => {
     setCurrentThumbnailRef(thumbnailsRefs.current[index]);
@@ -82,20 +78,13 @@ const ImageGallery = () => {
               currentStyle.photos.map(({ url }) => (
                 <Carousel.Item>
                   <div className="carousel-image">
-                    <img src={url} alt="" onClick={() => setShow(true)} />
+                    <img src={url} alt="" />
                   </div>
                 </Carousel.Item>
               )),
             )
             : null}
         </Carousel>
-        <ModalImage
-          show={show}
-          setShow={setShow}
-          index={index}
-          setIndex={setIndex}
-          handleSelect={handleSelect}
-        />
       </div>
     </div>
   );
