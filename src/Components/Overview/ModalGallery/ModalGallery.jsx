@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useImperativeHandle, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 
 const modalElement = document.getElementById('modal-root');
 
-const Modal = ({ childen }) => createPortal(
-  <div className="modal">{ childen }</div>,
-  modalElement,
-);
+const Modal = ({ childen, defaultOpened = false }, ref) => {
+  const [isOpen, setIsOpen] = useState(defaultOpened);
 
-export default Modal;
+  useImperativeHandle(ref, () => ({
+    open: () => setIsOpen(true),
+    close: () => setIsOpen(false),
+  }), [close]);
+
+  return createPortal(
+    isOpen ? <div className="modal">{childen}</div> : null,
+    modalElement,
+  );
+};
+
+export default forwardRef(Modal);
