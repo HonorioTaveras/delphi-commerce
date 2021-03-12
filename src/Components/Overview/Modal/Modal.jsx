@@ -7,6 +7,8 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 
+import './Modal.scss';
+
 const modalElement = document.getElementById('modal-root');
 
 const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
@@ -46,7 +48,7 @@ const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
       <div className={`modal ${fade ? 'modal-fade' : ''}`}>
         <div className="modal-overlay" onClick={close} />
         <span role="button" className="modal-close" aria-label="close" onClick={close}>
-          x
+          &#10005;
         </span>
         <div className="modal-body">{children}</div>
       </div>
