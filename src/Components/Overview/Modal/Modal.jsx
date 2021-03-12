@@ -47,7 +47,12 @@ const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
     isOpen ? (
       <div className={`modal ${fade ? 'modal-fade' : ''}`}>
         <div className="modal-overlay" onClick={close} />
-        <span role="button" className="modal-close" aria-label="close" onClick={close}>
+        <span
+          role="button"
+          className="modal-close"
+          aria-label="close"
+          onClick={close}
+        >
           &#10005;
         </span>
         <div className="modal-body">{children}</div>
