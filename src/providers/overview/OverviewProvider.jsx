@@ -43,9 +43,6 @@ const OverviewProvider = ({ children }) => {
     }
   };
 
-  console.log('productInformation: ', productInformation);
-  console.log('productStyles: ', productStyles[currentStyleIdx]);
-
   return (
     <OverviewContext.Provider
       value={{

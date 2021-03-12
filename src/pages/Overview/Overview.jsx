@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from '../../Components/Overview/Header/Header';
-import ImageGallery from '../../Components/Overview/ImageGallery/ImageGallery';
+import ImageGallerys from '../../Components/Overview/ImageGallery/ImageGallery';
 import StarRating from '../../Components/Overview/StarRating/StarRating';
 import ProductInformation from '../../Components/Overview/ProductInformation/ProductInformation';
 import StyleSelector from '../../Components/Overview/StyleSelector/StyleSelector';
@@ -16,7 +16,7 @@ const Overview = () => (
       <Header />
     </div>
     <div className="image-gallery">
-      <ImageGallery />
+      <ImageGallerys />
     </div>
     <div className="product-information-container">
       <div className="star-rating">
