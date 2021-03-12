@@ -1,9 +1,13 @@
 .star-rating-container {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
   .reviews-link {
-    font-size: 13px;
+    font-size: 12px;
     padding-left: 4px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

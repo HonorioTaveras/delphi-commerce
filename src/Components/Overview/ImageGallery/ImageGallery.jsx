@@ -5,16 +5,15 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
 
 import Modal from '../Modal/Modal';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
-import {
-  NextButton,
-  PrevButton,
-} from '../NextAndPrevButtons/NextAndPrevButtons';
+// import {
+//   NextButton,
+//   PrevButton,
+// } from '../NextAndPrevButtons/NextAndPrevButtons';
 
 import './ImageGallery.scss';
 
@@ -28,7 +27,7 @@ const ImageGallery = () => {
   const modal = useRef(null);
 
   const currentStyle = productStyles[currentStyleIdx];
-  const handleSelect = (idx) => setIndex(idx);
+  // const handleSelect = (idx) => setIndex(idx);
 
   useEffect(() => {
     setCurrentThumbnailRef(thumbnailsRefs.current[index]);
@@ -64,7 +63,7 @@ const ImageGallery = () => {
           : null}
       </div>
       <div className="carousel-container">
-        <Carousel
+        {/* <Carousel
           activeIndex={index}
           onSelect={handleSelect}
           autoPlay={false}
@@ -91,7 +90,7 @@ const ImageGallery = () => {
               )),
             )
             : null}
-        </Carousel>
+        </Carousel> */}
         <Modal ref={modal}>Sup dirtbag</Modal>
       </div>
     </div>
