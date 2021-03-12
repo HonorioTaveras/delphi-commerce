@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom';
 
 const modalElement = document.getElementById('modal-root');
 
-const Modal = ({ childen, defaultOpened = false }, ref) => {
+const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
   const [isOpen, setIsOpen] = useState(defaultOpened);
 
   const close = useCallback(() => setIsOpen(false), []);
@@ -42,7 +42,15 @@ const Modal = ({ childen, defaultOpened = false }, ref) => {
   }, [handleEscape, isOpen]);
 
   return createPortal(
-    isOpen ? <div className="modal">{childen}</div> : null,
+    isOpen ? (
+      <div className={`modal ${fade ? 'modal-fade' : ''}`}>
+        <div className="modal-overlay" onClick={close} />
+        <span role="button" className="modal-close" aria-label="close" onClick={close}>
+          x
+        </span>
+        <div className="modal-body">{children}</div>
+      </div>
+    ) : null,
     modalElement,
   );
 };

@@ -19,8 +19,10 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/no-static-element-interactions': 'warn',
+    'jsx-a11y/interactive-supports-focus': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'warn',
+    'jsx-a11y/no-noninteractive-element-interactions': 'warn',
     'no-alert': 'off',
     'global-require': 'warn',
     'no-shadow': 'warn',
