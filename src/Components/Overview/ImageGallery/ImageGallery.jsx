@@ -16,6 +16,7 @@ import {
   PrevButton,
 } from '../NextAndPrevButtons/NextAndPrevButtons';
 
+import bootstrap from './bootstrap';
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
@@ -43,6 +44,7 @@ const ImageGallery = () => {
 
   return (
     <div className="image-gallery-container">
+      <style scoped>{bootstrap}</style>
       <div className="thumbnails-container">
         {currentStyle
           ? Children.toArray(
