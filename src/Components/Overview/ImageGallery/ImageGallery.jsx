@@ -7,6 +7,8 @@ import React, {
 } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
+import Modal from '../Modal/Modal';
+
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
 import {
@@ -23,6 +25,7 @@ const ImageGallery = () => {
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
 
   const thumbnailsRefs = useRef([]);
+  const modal = useRef(null);
 
   const currentStyle = productStyles[currentStyleIdx];
   const handleSelect = (idx) => setIndex(idx);
@@ -78,13 +81,18 @@ const ImageGallery = () => {
               currentStyle.photos.map(({ url }) => (
                 <Carousel.Item>
                   <div className="carousel-image">
-                    <img src={url} alt="" />
+                    <img
+                      src={url}
+                      alt=""
+                      onClick={() => modal.current.open()}
+                    />
                   </div>
                 </Carousel.Item>
               )),
             )
             : null}
         </Carousel>
+        <Modal ref={modal}>Sup dirtbag</Modal>
       </div>
     </div>
   );
