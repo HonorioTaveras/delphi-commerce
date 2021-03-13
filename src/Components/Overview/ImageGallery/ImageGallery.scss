@@ -11,12 +11,18 @@
   .thumbnails-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 5px;
     height: 35rem;
     overflow: auto;
     position: relative;
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    @media (max-width: 1300px) {
+      height: 26rem;
     }
     .thumbnail-image {
       width: 65px;
@@ -46,12 +52,23 @@
   .carousel-container {
     width: 45rem;
     height: 36rem;
+      @media (max-width: 1300px) {
+        width: 35rem;
+        height: 26rem;
+      }
+
     .carousel-image {
       display: flex;
       justify-content: center;
+      align-items: center;
       position: relative;
       width: 45rem;
       height: 36rem;
+      @media (max-width: 1300px) {
+        width: 35rem;
+        height: 26rem;
+      }
+
       cursor: zoom-in;
       img {
         max-width: 100%;
