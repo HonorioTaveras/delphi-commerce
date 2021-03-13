@@ -19,32 +19,29 @@ const OverviewProvider = ({ children }) => {
   const productInformationEndpoint = `products/${productId}`;
 
   useEffect(() => {
+    const fetchProductInformation = async () => {
+      try {
+        const res = await axios.get(`${url}/${productInformationEndpoint}`);
+        setProductInformation(res.data);
+      } catch (error) {
+        console.log('fetch product information error: ', JSON.parse(error));
+      }
+    };
+
+    const fetchProductStyles = async () => {
+      try {
+        const res = await axios.get(
+          `${url}/${productInformationEndpoint}/styles`,
+        );
+        setProductStyles(res.data.results);
+      } catch (error) {
+        console.log('fetch product styles error: ', JSON.parse(error));
+      }
+    };
+
     fetchProductInformation();
     fetchProductStyles();
-  }, []);
-
-  const fetchProductInformation = async () => {
-    try {
-      const res = await axios.get(`${url}/${productInformationEndpoint}`);
-      setProductInformation(res.data);
-    } catch (error) {
-      console.log('fetch product information error: ', JSON.parse(error));
-    }
-  };
-
-  const fetchProductStyles = async () => {
-    try {
-      const res = await axios.get(
-        `${url}/${productInformationEndpoint}/styles`,
-      );
-      setProductStyles(res.data.results);
-    } catch (error) {
-      console.log('fetch product styles error: ', JSON.parse(error));
-    }
-  };
-
-  console.log('productInformation: ', productInformation);
-  console.log('productStyles: ', productStyles[currentStyleIdx]);
+  }, [productInformationEndpoint, url]);
 
   return (
     <OverviewContext.Provider

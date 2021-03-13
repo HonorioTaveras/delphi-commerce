@@ -38,7 +38,7 @@ const ImageGallery = () => {
         inline: 'center',
       });
     }
-  }, [index]);
+  }, [currentThumbnailRef, index]);
 
   return (
     <div className="image-gallery-container">
