@@ -10,14 +10,15 @@ const StarRating = () => {
 
   const [rating, setRating] = useState(0);
 
-  const handleRatingsAverage = () => {
-    const averageRating = reviewsInformation.reduce((total, currentReview) => (
-      (total + currentReview.rating)
-    ), 0) / reviewsInformation.length;
-    setRating(averageRating);
-  };
-
   useEffect(() => {
+    const handleRatingsAverage = () => {
+      const averageRating = reviewsInformation.reduce(
+        (total, currentReview) => total + currentReview.rating,
+        0,
+      ) / reviewsInformation.length;
+      setRating(averageRating);
+    };
+
     handleRatingsAverage();
   }, [reviewsInformation]);
 
@@ -47,16 +48,15 @@ const StarRating = () => {
               {' '}
               reviews
             </a>
-          )
-            : (
-              <a
-                href="/"
-                onClick={(e) => handleClickReviews(e)}
-                className="reviews-link"
-              >
-                Read review
-              </a>
-            )}
+          ) : (
+            <a
+              href="/"
+              onClick={(e) => handleClickReviews(e)}
+              className="reviews-link"
+            >
+              Read review
+            </a>
+          )}
         </div>
       </div>
     );
