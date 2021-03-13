@@ -72,7 +72,6 @@ const ImageGallery = () => {
           wrap={false}
           indicators={false}
           keyboard
-          // fade
           prevIcon={<PrevButton />}
           nextIcon={<NextButton />}
         >

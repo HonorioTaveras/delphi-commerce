@@ -17,17 +17,17 @@ const ReviewsProvider = ({ children }) => {
   const listReviewsEndpoint = `reviews/${productId}/list`;
 
   useEffect(() => {
-    fetchListReviews();
-  }, []);
+    const fetchListReviews = async () => {
+      try {
+        const res = await axios.get(`${url}/${listReviewsEndpoint}`);
+        setReviewsInformation(res.data.results);
+      } catch (error) {
+        console.log('fetch reviewa information error: ', JSON.parse(error));
+      }
+    };
 
-  const fetchListReviews = async () => {
-    try {
-      const res = await axios.get(`${url}/${listReviewsEndpoint}`);
-      setReviewsInformation(res.data.results);
-    } catch (error) {
-      console.log('fetch reviewa information error: ', JSON.parse(error));
-    }
-  };
+    fetchListReviews();
+  }, [listReviewsEndpoint, url]);
 
   return (
     <ReviewsContext.Provider
