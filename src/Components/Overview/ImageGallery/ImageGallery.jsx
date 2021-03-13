@@ -44,7 +44,7 @@ const ImageGallery = () => {
 
   return (
     <div className="image-gallery-container">
-      <style scoped>{bootstrap}</style>
+      <style>{bootstrap}</style>
       <div className="thumbnails-container">
         {currentStyle
           ? Children.toArray(
@@ -74,7 +74,7 @@ const ImageGallery = () => {
           wrap={false}
           indicators={false}
           keyboard
-          fade
+          // fade
           prevIcon={<PrevButton />}
           nextIcon={<NextButton />}
         >

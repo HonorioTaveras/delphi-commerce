@@ -54,7 +54,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
  margin: 0;
- font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+ font-family: 'Comfortaa', cursive;
  font-size: 1rem;
  font-weight: 400;
  line-height: 1.5;
@@ -10292,29 +10292,6 @@ a.text-dark:hover, a.text-dark:focus {
  }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-
-box-sizing: border-box;
-margin: 0;
-min-height: 100%;
-}
-*,
-*:before,
-*:after {
-box-sizing: inherit;
-}
-
-body {
-font-family: 'Comfortaa', cursive;
-background-color: #fff;
-color: #212322;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-margin-top: 5rem;
-}
-
-code {
-font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
-}`;
+`;
 
 export default bootstrap;
