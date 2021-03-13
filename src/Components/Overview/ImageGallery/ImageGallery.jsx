@@ -6,15 +6,23 @@ import React, {
   useEffect,
 } from 'react';
 
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from 'pure-react-carousel';
 import Modal from '../Modal/Modal';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
-// import {
-//   NextButton,
-//   PrevButton,
-// } from '../NextAndPrevButtons/NextAndPrevButtons';
+import {
+  NextButton,
+  PrevButton,
+} from '../NextAndPrevButtons/NextAndPrevButtons';
 
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
@@ -63,6 +71,36 @@ const ImageGallery = () => {
           : null}
       </div>
       <div className="carousel-container">
+        <CarouselProvider
+          className="carousel-provider"
+          isIntrinsicHeight
+          lockOnWindowScroll
+          totalSlides={currentStyle && currentStyle.photos.length}
+        >
+          <Slider>
+            {currentStyle
+              ? Children.toArray(
+                currentStyle.photos.map(({ url }, idx) => (
+                  <Slide index={idx}>
+                    <div className="carousel-image">
+                      <img
+                        src={url}
+                        alt=""
+                        onClick={() => modal.current.open()}
+                      />
+                    </div>
+                  </Slide>
+                )),
+              )
+              : null}
+          </Slider>
+          <ButtonBack className="carousel-control-prev">
+            <PrevButton />
+          </ButtonBack>
+          <ButtonNext className="carousel-control-next">
+            <NextButton />
+          </ButtonNext>
+        </CarouselProvider>
         {/* <Carousel
           activeIndex={index}
           onSelect={handleSelect}
