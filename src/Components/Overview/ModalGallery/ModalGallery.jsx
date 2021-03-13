@@ -12,6 +12,11 @@ import {
 
 import './ModalGallery.scss';
 
+/*
+ seperate this component from image gallery so that when going through it,
+it does not change the carousel and thumbnails of image gallery component causing bad UX
+*/
+
 const ModalGallery = ({
   modal, index, handleSelect, currentStyle,
 }) => (
@@ -31,7 +36,7 @@ const ModalGallery = ({
         ? Children.toArray(
           currentStyle.photos.map(({ url }) => (
             <Carousel.Item>
-              <div className="carousel-image">
+              <div className="modal-carousel-image">
                 <img src={url} alt="" />
               </div>
             </Carousel.Item>
