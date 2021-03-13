@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import Modal from '../Modal/Modal';
+import ModalGallery from '../ModalGallery/ModalGallery';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
@@ -40,6 +40,8 @@ const ImageGallery = () => {
       });
     }
   }, [index, currentThumbnailRef]);
+
+  console.log(currentStyle);
 
   return (
     <div className="image-gallery-container">
@@ -91,7 +93,12 @@ const ImageGallery = () => {
             )
             : null}
         </Carousel>
-        <Modal ref={modal}>Sup dirtbag</Modal>
+        <ModalGallery
+          modal={modal}
+          index={index}
+          handleSelect={handleSelect}
+          currentStyle={currentStyle}
+        />
       </div>
     </div>
   );
