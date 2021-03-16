@@ -201,6 +201,12 @@ const bootstrap = `.carousel {
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
+ }
+
+
+ .carousel-control-prev,
+ .carousel-control-next {
+   opacity: 100%;
  }`;
 
 export default bootstrap;

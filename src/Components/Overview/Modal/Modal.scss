@@ -59,10 +59,12 @@
 .modal > .modal-body {
   width: 58.125rem !important;
   height: 58.125rem;
+  display: flex;
+  flex-direction: row;
   // width: 53% !important;
   // height: 100% !important;
-  position: relative !important;
-  flex: none !important;
+  // position: relative !important;
+  // flex: none !important;
 }
 
 @keyframes fade-in {
