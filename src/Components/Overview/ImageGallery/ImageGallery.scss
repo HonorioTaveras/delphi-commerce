@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 5px;
+    padding: 0 0.313rem;
     height: 36rem;
     overflow: auto;
     position: relative;
@@ -21,9 +21,9 @@
       height: 26rem;
     }
     .thumbnail-image {
-      width: 65px;
-      height: 65px;
-      padding-bottom: 5px;
+      width: 4.063rem;
+      height: 4.063rem;
+      padding-bottom: 0.313rem;
       opacity: 0.75;
       transition: 0.3s ease all;
       cursor: pointer;
