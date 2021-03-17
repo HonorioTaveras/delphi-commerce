@@ -43,54 +43,52 @@ const ModalGallery = ({
 
   return (
     <Modal ref={modal}>
-      <Carousel
-        activeIndex={index}
-        onSelect={handleSelect}
-        autoPlay={false}
-        interval={null}
-        wrap={false}
-        indicators={false}
-        keyboard
-        prevIcon={<PrevButton />}
-        nextIcon={<NextButton />}
-      >
-        {currentStyle
-          ? Children.toArray(
-            currentStyle.photos.map(({ url }) => (
-              <Carousel.Item>
-                <div className="modal-carousel-image">
-                  <img src={url} alt="" />
+      <div className="modal-container">
+        <div className="modal-carousel-container">
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            autoPlay={false}
+            interval={null}
+            wrap={false}
+            indicators={false}
+            keyboard
+            prevIcon={<PrevButton />}
+            nextIcon={<NextButton />}
+          >
+            {currentStyle
+              ? Children.toArray(
+                currentStyle.photos.map(({ url }) => (
+                  <Carousel.Item>
+                    <div className="modal-carousel-image">
+                      <img src={url} alt="" />
+                    </div>
+                  </Carousel.Item>
+                )),
+              )
+              : null}
+          </Carousel>
+        </div>
+        <div className="modal-thumbnails-container">
+          {currentStyle
+            ? Children.toArray(
+              currentStyle.photos.map(({ url }, idx) => (
+                <div
+                  className={`${
+                    index === idx ? 'current-modal-thumbnail' : ''
+                  } modal-thumbnail-image`}
+                >
+                  <img
+                    src={url}
+                    alt=""
+                    onClick={() => setIndex(idx)}
+                    ref={(currentThumbnail) => thumbnailsRefs.current.push(currentThumbnail)}
+                  />
                 </div>
-              </Carousel.Item>
-            )),
-          )
-          : null}
-      </Carousel>
-      {/* <div className="modal-thumbnails-container">
-        {currentStyle
-          ? Children.toArray(
-            currentStyle.photos.map(({ url }, idx) => (
-              <div
-                className={`${
-                  index === idx ? 'current-modal-thumbnail' : ''
-                } modal-thumbnail-image`}
-              >
-                <img
-                  src={url}
-                  alt=""
-                  onClick={() => setIndex(idx)}
-                  ref={(currentThumbnail) => thumbnailsRefs.current.push(currentThumbnail)}
-                />
-              </div>
-            )),
-          )
-          : null}
-      </div> */}
-      <div className="modal-carousel">
-        modal carousel
-      </div>
-      <div className="modal-thumbnails">
-        modal thumbnails
+              )),
+            )
+            : null}
+        </div>
       </div>
     </Modal>
   );

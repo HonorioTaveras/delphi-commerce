@@ -57,14 +57,11 @@
 }
 
 .modal > .modal-body {
-  width: 58.125rem !important;
-  height: 58.125rem;
+  width: 69.125rem !important;
+  height: 69.125rem !important;
   display: flex;
-  flex-direction: row;
-  // width: 53% !important;
-  // height: 100% !important;
-  // position: relative !important;
-  // flex: none !important;
+  align-items: center;
+  position: relative !important;
 }
 
 @keyframes fade-in {
