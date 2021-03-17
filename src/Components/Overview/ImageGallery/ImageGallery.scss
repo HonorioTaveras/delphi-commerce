@@ -4,16 +4,13 @@
   display: flex;
   align-items: center;
   position: absolute;
-  // .carousel-control-prev,
-  // .carousel-control-next {
-  //   opacity: 100%;
-  // }
+
   .thumbnails-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 5px;
-    height: 35rem;
+    height: 36rem;
     overflow: auto;
     position: relative;
     &::-webkit-scrollbar {
@@ -26,7 +23,7 @@
     .thumbnail-image {
       width: 65px;
       height: 65px;
-      margin: 3px;
+      padding-bottom: 5px;
       opacity: 0.75;
       transition: 0.3s ease all;
       cursor: pointer;
@@ -51,14 +48,12 @@
   .carousel-container {
     width: 45rem;
     height: 36rem;
-      @media (max-width: 1300px) {
-        width: 35rem;
-        height: 26rem;
-      }
+    @media (max-width: 1300px) {
+      width: 35rem;
+      height: 26rem;
+    }
 
-
-      // might need to figure out a way to use percentages insteead of hard coded values in order to grow and shrink carousel according to screen size
-
+    // might need to figure out a way to use percentages insteead of hard coded values in order to grow and shrink carousel according to screen size
 
     .carousel-image {
       display: flex;
