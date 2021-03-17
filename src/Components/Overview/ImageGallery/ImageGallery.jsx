@@ -19,9 +19,11 @@ import {
 import './ImageGallery.scss';
 
 const ImageGallery = () => {
-  const { productStyles, currentStyleIdx } = useContext(OverviewContext);
+  const {
+    productStyles, currentStyleIdx, index, setIndex,
+  } = useContext(OverviewContext);
 
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
 
   const thumbnailsRefs = useRef([]);
@@ -40,8 +42,6 @@ const ImageGallery = () => {
       });
     }
   }, [index, currentThumbnailRef]);
-
-  console.log(currentStyle);
 
   return (
     <div className="image-gallery-container">

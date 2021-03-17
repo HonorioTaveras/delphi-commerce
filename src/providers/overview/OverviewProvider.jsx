@@ -14,6 +14,8 @@ const OverviewProvider = ({ children }) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyleIdx, setCurrentStyleIdx] = useState(0);
 
+  const [index, setIndex] = useState(0);
+
   const url = useContext(UrlContext);
   const productId = useContext(ProductIdContext);
   const productInformationEndpoint = `products/${productId}`;
@@ -50,6 +52,8 @@ const OverviewProvider = ({ children }) => {
         productStyles,
         currentStyleIdx,
         setCurrentStyleIdx,
+        index,
+        setIndex,
       }}
     >
       {children}
