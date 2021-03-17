@@ -9,16 +9,19 @@ import ProductIdContext from '../../contexts/productId/productId.context';
 
 const OverviewContext = createContext();
 
-const OverviewProvider = ({ children }) => {
+const OverviewProvider = ({ children, defaultOpened = false }) => {
+  const url = useContext(UrlContext);
+  const productId = useContext(ProductIdContext);
+
   const [productInformation, setProductInformation] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyleIdx, setCurrentStyleIdx] = useState(0);
-
   const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(defaultOpened);
 
-  const url = useContext(UrlContext);
-  const productId = useContext(ProductIdContext);
   const productInformationEndpoint = `products/${productId}`;
+  const currentStyle = productStyles[currentStyleIdx];
+  const handleSelect = (idx) => setIndex(idx);
 
   useEffect(() => {
     const fetchProductInformation = async () => {
@@ -54,6 +57,10 @@ const OverviewProvider = ({ children }) => {
         setCurrentStyleIdx,
         index,
         setIndex,
+        currentStyle,
+        handleSelect,
+        isOpen,
+        setIsOpen,
       }}
     >
       {children}
@@ -63,6 +70,7 @@ const OverviewProvider = ({ children }) => {
 
 OverviewProvider.propTypes = {
   children: PropTypes.element.isRequired,
+  defaultOpened: PropTypes.bool.isRequired,
 };
 
 export { OverviewProvider, OverviewContext };

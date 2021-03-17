@@ -1,20 +1,25 @@
 import React, {
   useEffect,
-  useState,
+  // useState,
   useImperativeHandle,
   forwardRef,
   useCallback,
+  useContext,
 } from 'react';
 import { createPortal } from 'react-dom';
+
+import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
 import './Modal.scss';
 
 const modalElement = document.getElementById('modal-root');
 
-const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
-  const [isOpen, setIsOpen] = useState(defaultOpened);
+const Modal = ({ children, fade = false }, ref) => {
+  const { isOpen, setIsOpen } = useContext(OverviewContext);
 
-  const close = useCallback(() => setIsOpen(false), []);
+  // const [isOpen, setIsOpen] = useState(defaultOpened);
+
+  const close = useCallback(() => setIsOpen(false), [setIsOpen]);
 
   useImperativeHandle(
     ref,
@@ -22,7 +27,7 @@ const Modal = ({ children, fade = false, defaultOpened = false }, ref) => {
       open: () => setIsOpen(true),
       close,
     }),
-    [close],
+    [close, setIsOpen],
   );
 
   const handleEscape = useCallback(

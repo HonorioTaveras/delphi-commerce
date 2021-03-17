@@ -20,17 +20,18 @@ import './ImageGallery.scss';
 
 const ImageGallery = () => {
   const {
-    productStyles, currentStyleIdx, index, setIndex,
+    index,
+    setIndex,
+    currentStyle,
+    handleSelect,
+    isOpen,
+    // setIsOpen
   } = useContext(OverviewContext);
 
-  // const [index, setIndex] = useState(0);
   const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
 
   const thumbnailsRefs = useRef([]);
   const modal = useRef(null);
-
-  const currentStyle = productStyles[currentStyleIdx];
-  const handleSelect = (idx) => setIndex(idx);
 
   useEffect(() => {
     setCurrentThumbnailRef(thumbnailsRefs.current[index]);
@@ -41,8 +42,12 @@ const ImageGallery = () => {
         inline: 'center',
       });
     }
-  }, [index, currentThumbnailRef]);
+    if (isOpen) {
+      setCurrentThumbnailRef(null);
+    }
+  }, [index, currentThumbnailRef, isOpen]);
 
+  console.log('modal: ', modal.current && modal.current.open);
   return (
     <div className="image-gallery-container">
       <div className="thumbnails-container">
@@ -51,7 +56,7 @@ const ImageGallery = () => {
             currentStyle.photos.map(({ url }, idx) => (
               <div
                 className={`${
-                  index === idx ? 'current-thumbnail' : ''
+                  index === idx && !isOpen ? 'current-thumbnail' : ''
                 } thumbnail-image`}
               >
                 <img
@@ -93,12 +98,7 @@ const ImageGallery = () => {
             )
             : null}
         </Carousel>
-        <ModalGallery
-          modal={modal}
-          index={index}
-          handleSelect={handleSelect}
-          currentStyle={currentStyle}
-        />
+        <ModalGallery modal={modal} />
       </div>
     </div>
   );

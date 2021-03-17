@@ -1,5 +1,9 @@
 import React, {
-  Children, useContext, useState, useEffect, useRef,
+  Children,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,33 +22,38 @@ import './ModalGallery.scss';
 /*
  seperate this component from image gallery so that when going through it,
 it does not change the carousel and thumbnails of image gallery component causing bad UX
+
+figure out a way to get the thumbnails to scroll automatically upon manipulating
+the carousel
+
+when refs scroll view up, it moves entire component up. Stop that.
 */
 
-const ModalGallery = ({
-  modal,
-  // index,
-  handleSelect,
-  currentStyle,
-  // setIndex,
-}) => {
+const ModalGallery = ({ modal }) => {
   const {
-    index, setIndex,
-  } = useContext(OverviewContext);
+    index, setIndex, currentStyle, handleSelect,
+  } = useContext(
+    OverviewContext,
+  );
 
-  const [currentThumbnailRef, setCurrentThumbnailRef] = useState(null);
+  const [currentModalThumbnailRef, setCurrentModalThumbnailRef] = useState(
+    null,
+  );
 
-  const thumbnailsRefs = useRef([]);
+  const ModalThumbnailsRefs = useRef([]);
 
   useEffect(() => {
-    setCurrentThumbnailRef(thumbnailsRefs.current[index]);
-    if (currentThumbnailRef) {
-      currentThumbnailRef.scrollIntoView({
+    setCurrentModalThumbnailRef(ModalThumbnailsRefs.current[index]);
+    if (currentModalThumbnailRef) {
+      currentModalThumbnailRef.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
         inline: 'center',
       });
     }
-  }, [index, currentThumbnailRef]);
+  }, [index, currentModalThumbnailRef]);
+
+  console.log('ModalThumbnailsRefs: ', ModalThumbnailsRefs);
 
   return (
     <Modal ref={modal}>
@@ -87,7 +96,9 @@ const ModalGallery = ({
                     src={url}
                     alt=""
                     onClick={() => setIndex(idx)}
-                    ref={(currentThumbnail) => thumbnailsRefs.current.push(currentThumbnail)}
+                    ref={(currentModalThumbnail) => (
+                      ModalThumbnailsRefs.current.push(currentModalThumbnail)
+                    )}
                   />
                 </div>
               )),
@@ -104,36 +115,10 @@ ModalGallery.propTypes = {
     close: PropTypes.func,
     open: PropTypes.func,
   }),
-  // index: PropTypes.number.isRequired,
-  handleSelect: PropTypes.func.isRequired,
-  currentStyle: PropTypes.shape({
-    default: PropTypes.number,
-    name: PropTypes.string,
-    original_price: PropTypes.string,
-    photos: PropTypes.arrayOf(PropTypes.object),
-    sale_price: PropTypes.string,
-    skus: PropTypes.objectOf(PropTypes.number),
-    style_id: PropTypes.number,
-  }),
-  // setIndex: PropTypes.func.isRequired,
 };
 
 ModalGallery.defaultProps = {
   modal: { close: () => {}, open: () => {} },
-  currentStyle: {
-    default: 1,
-    name: 'White & White',
-    original_price: '99',
-    photos: [{
-      thumbnail_url: 'https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-      url: 'https://images.unsplash.com/photo-1544441892-79416',
-    }],
-    sale_price: '0',
-    skus: {
-      7: 14, 8: 9, 9: 18, 10: 10, 11: 11, 12: 25, 7.5: 25, 8.5: 2, 9.5: 12, 10.5: 18, 11.5: 35,
-    },
-    style_id: 26,
-  },
 };
 
 export default ModalGallery;
