@@ -70,7 +70,11 @@ const OverviewProvider = ({ children, defaultOpened = false }) => {
 
 OverviewProvider.propTypes = {
   children: PropTypes.element.isRequired,
-  defaultOpened: PropTypes.bool.isRequired,
+  defaultOpened: PropTypes.bool,
+};
+
+OverviewProvider.defaultProps = {
+  defaultOpened: false,
 };
 
 export { OverviewProvider, OverviewContext };

@@ -17,8 +17,6 @@ const modalElement = document.getElementById('modal-root');
 const Modal = ({ children, fade = false }, ref) => {
   const { isOpen, setIsOpen } = useContext(OverviewContext);
 
-  // const [isOpen, setIsOpen] = useState(defaultOpened);
-
   const close = useCallback(() => setIsOpen(false), [setIsOpen]);
 
   useImperativeHandle(

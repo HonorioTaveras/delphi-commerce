@@ -51,9 +51,10 @@ const ModalGallery = ({ modal }) => {
         inline: 'center',
       });
     }
+    return () => setCurrentModalThumbnailRef(null);
   }, [index, currentModalThumbnailRef]);
 
-  console.log('ModalThumbnailsRefs: ', ModalThumbnailsRefs);
+  console.log('currentModalThumbnailRef: ', currentModalThumbnailRef);
 
   return (
     <Modal ref={modal}>
