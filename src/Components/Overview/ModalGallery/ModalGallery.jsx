@@ -22,11 +22,6 @@ import './ModalGallery.scss';
 /*
  seperate this component from image gallery so that when going through it,
 it does not change the carousel and thumbnails of image gallery component causing bad UX
-
-figure out a way to get the thumbnails to scroll automatically upon manipulating
-the carousel
-
-when refs scroll view up, it moves entire component up. Stop that.
 */
 
 const ModalGallery = ({ modal }) => {
@@ -52,7 +47,8 @@ const ModalGallery = ({ modal }) => {
       });
     }
     return () => setCurrentModalThumbnailRef(null);
-  }, [index, currentModalThumbnailRef]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, currentModalThumbnailRef, modalThumbnailsRefs.current[index]]);
 
   console.log(modalThumbnailsRefs.current[index]);
 
