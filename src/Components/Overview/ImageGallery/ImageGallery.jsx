@@ -46,11 +46,6 @@ const ImageGallery = () => {
     }
   }, [index, currentThumbnailRef, isOpen]);
 
-  // console.log('currentThumbnailRef: ', currentThumbnailRef);
-
-  // todo: fix bug where thumbnails in modal dont auto scroll when opened
-  // then closed and opened again (might be after scrolling in app)
-
   return (
     <div className="image-gallery-container">
       <div className="thumbnails-container">

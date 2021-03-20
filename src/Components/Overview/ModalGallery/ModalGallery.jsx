@@ -40,10 +40,10 @@ const ModalGallery = ({ modal }) => {
     null,
   );
 
-  const ModalThumbnailsRefs = useRef([]);
+  const modalThumbnailsRefs = useRef([]);
 
   useEffect(() => {
-    setCurrentModalThumbnailRef(ModalThumbnailsRefs.current[index]);
+    setCurrentModalThumbnailRef(modalThumbnailsRefs.current[index]);
     if (currentModalThumbnailRef) {
       currentModalThumbnailRef.scrollIntoView({
         behavior: 'smooth',
@@ -54,7 +54,7 @@ const ModalGallery = ({ modal }) => {
     return () => setCurrentModalThumbnailRef(null);
   }, [index, currentModalThumbnailRef]);
 
-  console.log('currentModalThumbnailRef: ', currentModalThumbnailRef);
+  console.log(modalThumbnailsRefs.current[index]);
 
   return (
     <Modal ref={modal}>
@@ -97,9 +97,9 @@ const ModalGallery = ({ modal }) => {
                     src={url}
                     alt=""
                     onClick={() => setIndex(idx)}
-                    ref={(currentModalThumbnail) => (
-                      ModalThumbnailsRefs.current.push(currentModalThumbnail)
-                    )}
+                    ref={(currentModalThumbnail) => (modalThumbnailsRefs.current[
+                      idx
+                    ] = currentModalThumbnail)}
                   />
                 </div>
               )),
