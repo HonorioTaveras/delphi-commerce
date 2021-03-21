@@ -8,6 +8,7 @@ import React, {
 import PropTypes from 'prop-types';
 
 import Carousel from 'react-bootstrap/Carousel';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
@@ -17,6 +18,7 @@ import {
   NextButton,
 } from '../NextAndPrevButtons/NextAndPrevButtons';
 
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './ModalGallery.scss';
 
 /*
@@ -72,7 +74,8 @@ const ModalGallery = ({ modal }) => {
                 currentStyle.photos.map(({ url }) => (
                   <Carousel.Item>
                     <div className="modal-carousel-image">
-                      <img src={url} alt="" />
+                      {/* <img src={url} alt="" /> */}
+                      <InnerImageZoom src={url} alt="" />
                     </div>
                   </Carousel.Item>
                 )),
