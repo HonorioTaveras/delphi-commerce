@@ -1,0 +1,21 @@
+.style-selector-container {
+  .selected-style {
+  }
+  .style-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    .style-image {
+      overflow: hidden;
+      border-radius: 50%;
+      width: 66px;
+      height: 66px;
+      // margin-right: 6px;
+      img {
+        object-fit: cover;
+        cursor: pointer;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}

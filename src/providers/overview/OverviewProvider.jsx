@@ -48,8 +48,6 @@ const OverviewProvider = ({ children, defaultOpened = false }) => {
     fetchProductStyles();
   }, [productInformationEndpoint, url]);
 
-  // console.log(productStyles);
-
   return (
     <OverviewContext.Provider
       value={{

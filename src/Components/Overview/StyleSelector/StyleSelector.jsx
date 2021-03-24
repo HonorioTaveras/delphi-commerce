@@ -17,7 +17,7 @@ const StyleSelector = () => {
       <div className="selected-style">
         STYLE &gt;
         {' '}
-        {currentStyle ? currentStyle.name : null}
+        {currentStyle ? currentStyle.name.toUpperCase() : null}
       </div>
       <div className="style-selector">
         {Children.toArray(productStyles.map(({ photos }, idx) => (
