@@ -1,15 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, Children } from 'react';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
 import './StyleSelector.scss';
 
 const StyleSelector = () => {
-  const { currentStyleIdx, setCurrentStyleIdx, productStyles } = useContext(OverviewContext);
-  console.log(productStyles);
+  const {
+    currentStyleIdx,
+    setCurrentStyleIdx,
+    productStyles,
+    currentStyle,
+  } = useContext(OverviewContext);
+  console.log(currentStyle);
 
   return (
-    <div>style selector</div>
+    <div className="style-selector-container">
+      <div className="selected-style">
+        STYLE &gt;
+        {' '}
+        {currentStyle ? currentStyle.name : null}
+      </div>
+    </div>
   );
 };
 
