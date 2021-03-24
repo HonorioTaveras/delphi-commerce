@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {
   Children,
   useContext,
@@ -8,7 +9,6 @@ import React, {
 import PropTypes from 'prop-types';
 
 import Carousel from 'react-bootstrap/Carousel';
-import InnerImageZoom from 'react-inner-image-zoom';
 
 import { OverviewContext } from '../../../providers/overview/OverviewProvider';
 
@@ -18,7 +18,6 @@ import {
   NextButton,
 } from '../NextAndPrevButtons/NextAndPrevButtons';
 
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './ModalGallery.scss';
 
 /*
@@ -49,7 +48,6 @@ const ModalGallery = ({ modal }) => {
       });
     }
     return () => setCurrentModalThumbnailRef(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, currentModalThumbnailRef, modalThumbnailsRefs.current[index]]);
 
   console.log(modalThumbnailsRefs.current[index]);
@@ -66,6 +64,7 @@ const ModalGallery = ({ modal }) => {
             wrap={false}
             indicators={false}
             keyboard
+            touch
             prevIcon={<PrevButton />}
             nextIcon={<NextButton />}
           >
@@ -74,8 +73,7 @@ const ModalGallery = ({ modal }) => {
                 currentStyle.photos.map(({ url }) => (
                   <Carousel.Item>
                     <div className="modal-carousel-image">
-                      {/* <img src={url} alt="" /> */}
-                      <InnerImageZoom src={url} alt="" />
+                      <img src={url} alt="" />
                     </div>
                   </Carousel.Item>
                 )),

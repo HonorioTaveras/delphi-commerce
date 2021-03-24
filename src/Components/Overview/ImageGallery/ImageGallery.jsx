@@ -77,6 +77,7 @@ const ImageGallery = () => {
           wrap={false}
           indicators={false}
           keyboard
+          touch
           prevIcon={<PrevButton />}
           nextIcon={<NextButton />}
         >
