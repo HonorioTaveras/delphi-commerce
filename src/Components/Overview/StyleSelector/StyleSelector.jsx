@@ -6,12 +6,11 @@ import './StyleSelector.scss';
 
 const StyleSelector = () => {
   const {
-    currentStyleIdx,
     setCurrentStyleIdx,
     productStyles,
     currentStyle,
   } = useContext(OverviewContext);
-  console.log(currentStyle);
+  console.log(productStyles);
 
   return (
     <div className="style-selector-container">
@@ -19,6 +18,13 @@ const StyleSelector = () => {
         STYLE &gt;
         {' '}
         {currentStyle ? currentStyle.name : null}
+      </div>
+      <div className="style-selector">
+        {Children.toArray(productStyles.map(({ photos }, idx) => (
+          <div className="style-image">
+            <img src={photos[0].url} alt="" onClick={() => setCurrentStyleIdx(idx)} />
+          </div>
+        )))}
       </div>
     </div>
   );
