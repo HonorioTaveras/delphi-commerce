@@ -50,8 +50,6 @@ const ModalGallery = ({ modal }) => {
     return () => setCurrentModalThumbnailRef(null);
   }, [index, currentModalThumbnailRef, modalThumbnailsRefs.current[index]]);
 
-  console.log(modalThumbnailsRefs.current[index]);
-
   return (
     <Modal ref={modal}>
       <div className="modal-container">
