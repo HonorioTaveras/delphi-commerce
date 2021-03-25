@@ -10,6 +10,7 @@ const StyleSelector = () => {
     productStyles,
     currentStyle,
     setIndex,
+    currentStyleIdx,
   } = useContext(OverviewContext);
   console.log(productStyles);
 
@@ -36,7 +37,7 @@ const StyleSelector = () => {
                 alt=""
                 onClick={() => handleStyleSelect(idx)}
               />
-              <div className="checkmark" />
+              {idx === currentStyleIdx ? <div className="checkmark" /> : null}
             </div>
           )),
         )}
