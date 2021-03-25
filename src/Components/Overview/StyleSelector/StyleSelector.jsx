@@ -9,22 +9,37 @@ const StyleSelector = () => {
     setCurrentStyleIdx,
     productStyles,
     currentStyle,
+    setIndex,
   } = useContext(OverviewContext);
   console.log(productStyles);
+
+  const handleStyleSelect = (i) => {
+    setCurrentStyleIdx(i);
+    setIndex(0);
+  };
 
   return (
     <div className="style-selector-container">
       <div className="selected-style">
-        STYLE &gt;
+        <span className="style">STYLE &gt;</span>
         {' '}
-        {currentStyle ? currentStyle.name.toUpperCase() : null}
+        <span className="current-style-name">
+          {currentStyle ? currentStyle.name : null}
+        </span>
       </div>
       <div className="style-selector">
-        {Children.toArray(productStyles.map(({ photos }, idx) => (
-          <div className="style-image">
-            <img src={photos[0].url} alt="" onClick={() => setCurrentStyleIdx(idx)} />
-          </div>
-        )))}
+        {Children.toArray(
+          productStyles.map(({ photos }, idx) => (
+            <div className="style-image">
+              <img
+                src={photos[0].url}
+                alt=""
+                onClick={() => handleStyleSelect(idx)}
+              />
+              <div className="checkmark" />
+            </div>
+          )),
+        )}
       </div>
     </div>
   );

@@ -11,13 +11,13 @@
   }
   .image-gallery {
     grid-area: image-gallery;
-    width: 45rem;
+    // width: 45rem;
     height: 36rem;
     margin-bottom: 2rem;
-    @media (max-width: 1300px) {
-      width: 35rem;
-      height: 26rem;
-    }
+    // @media (max-width: 1300px) {
+    //   width: 35rem;
+    //   height: 26rem;
+    // }
   }
   .product-information-container {
     grid-area: product-information;
