@@ -31,12 +31,14 @@ const StyleSelector = () => {
       <div className="style-selector">
         {Children.toArray(
           productStyles.map(({ photos }, idx) => (
-            <div className="style-image">
-              <img
-                src={photos[0].url}
-                alt=""
-                onClick={() => handleStyleSelect(idx)}
-              />
+            <div className="style-image-container">
+              <div className="style-image">
+                <img
+                  src={photos[0].url}
+                  alt=""
+                  onClick={() => handleStyleSelect(idx)}
+                />
+              </div>
               {idx === currentStyleIdx ? <div className="checkmark" /> : null}
             </div>
           )),

@@ -17,22 +17,24 @@
     row-gap: 25px;
     column-gap: 25px;
     width: 66%;
-    .style-image {
+    .style-image-container {
       position: relative;
-      overflow: hidden;
-      border-radius: 50%;
-      width: 66px;
-      height: 66px;
-      img {
-        object-fit: cover;
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
+      .style-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        width: 66px;
+        height: 66px;
+        img {
+          object-fit: cover;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+        }
       }
       .checkmark {
-        z-index: 9;
-        left: 60%;
-        bottom: 60%;
+        left: 72%;
+        bottom: 72%;
         position: absolute;
         width: 20px;
         height: 20px;
