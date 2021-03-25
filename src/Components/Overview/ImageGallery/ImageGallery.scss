@@ -17,8 +17,8 @@
       display: none;
     }
 
-    @media (max-width: 1300px) {
-      height: 26rem;
+    @media (max-width: 1360px) {
+      height: 30rem;
     }
     .thumbnail-image {
       width: 4.063rem;
@@ -48,9 +48,9 @@
   .carousel-container {
     width: 45rem;
     height: 36rem;
-    @media (max-width: 1300px) {
-      width: 35rem;
-      height: 26rem;
+    @media (max-width: 1360px) {
+      width: 40rem;
+      height: 30rem;
     }
 
     // might need to figure out a way to use percentages insteead of hard coded values in order to grow and shrink carousel according to screen size
@@ -61,9 +61,9 @@
       position: relative;
       width: 45rem;
       height: 36rem;
-      @media (max-width: 1300px) {
-        width: 35rem;
-        height: 26rem;
+      @media (max-width: 1360px) {
+        width: 40rem;
+        height: 30rem;
       }
 
       cursor: zoom-in;
