@@ -17,9 +17,9 @@
       display: none;
     }
 
-    @media (max-width: 1360px) {
-      height: 30rem;
-    }
+    // @media (max-width: 1360px) {
+    //   height: 30rem;
+    // }
     .thumbnail-image {
       width: 4.063rem;
       height: 4.063rem;
@@ -46,12 +46,14 @@
     }
   }
   .carousel-container {
-    width: 45rem;
-    height: 36rem;
-    @media (max-width: 1360px) {
-      width: 40rem;
-      height: 30rem;
-    }
+    // width: 45rem;
+    // height: 36rem;
+    width: 42vw;
+    height: 55.5vh;
+    // @media (max-width: 1360px) {
+    //   width: 40rem;
+    //   height: 30rem;
+    // }
 
     // might need to figure out a way to use percentages insteead of hard coded values in order to grow and shrink carousel according to screen size
 
@@ -59,12 +61,14 @@
       display: flex;
       justify-content: center;
       position: relative;
-      width: 45rem;
-      height: 36rem;
-      @media (max-width: 1360px) {
-        width: 40rem;
-        height: 30rem;
-      }
+      width: 42vw;
+      height: 55.5vh;
+      // width: 45rem;
+      // height: 36rem;
+      // @media (max-width: 1360px) {
+      //   width: 40rem;
+      //   height: 30rem;
+      // }
 
       cursor: zoom-in;
       img {
