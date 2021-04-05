@@ -1,5 +1,6 @@
 .overview-container {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -13,10 +14,6 @@
     grid-area: image-gallery;
     height: 36rem;
     margin-bottom: 2rem;
-    @media (max-width: 1360px) {
-      width: 40rem;
-      height: 30rem;
-    }
   }
   .product-information-container {
     grid-area: product-information;
