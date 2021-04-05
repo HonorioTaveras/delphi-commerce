@@ -11,7 +11,6 @@
   }
   .image-gallery {
     grid-area: image-gallery;
-    // width: 45rem;
     height: 36rem;
     margin-bottom: 2rem;
     @media (max-width: 1360px) {
@@ -24,9 +23,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    @media (max-width: 1550px) {
-      margin-left: 25%;
-    }
     .star-rating {
     }
     .product-information {
